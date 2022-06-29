@@ -1,0 +1,8 @@
+﻿  D3D.cpp
+C:\Users\aleks\OneDrive\Desktop\ReSub\Direct3D\Direct3D\D3D.cpp(84,22): warning C4244: '=': conversion from 'UINT' to 'FLOAT', possible loss of data
+C:\Users\aleks\OneDrive\Desktop\ReSub\Direct3D\Direct3D\D3D.cpp(85,23): warning C4244: '=': conversion from 'UINT' to 'FLOAT', possible loss of data
+C:\Users\aleks\OneDrive\Desktop\ReSub\Direct3D\Direct3D\D3D.cpp(104,102): warning C4305: 'argument': truncation from 'unsigned int' to 'UINT8'
+C:\Users\aleks\OneDrive\Desktop\ReSub\Direct3D\Direct3D\D3D.cpp(104,92): warning C4309: 'argument': truncation of constant value
+  Main.cpp
+  Generating Code...
+  Direct3D.vcxproj -> C:\Users\aleks\OneDrive\Desktop\ReSub\Direct3D\Debug\Direct3D.exe
