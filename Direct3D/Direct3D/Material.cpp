@@ -17,18 +17,13 @@ INT Material::Initialize(ID3D11Device* pD3DDevice, int texture, int desc)
 	error = CreateMatrixBuffer(pD3DDevice);
 	CheckError(error);
 	
+
+	error = CreateLightBuffer(pD3DDevice);
+	CheckError(error);
+
+
 	
-	switch (texture) {
-	case IDC_POPCORN: 
-		error = CreateTexAndSampler(pD3DDevice, TEXT("popcorn.jpg"));
-		break;	
-	case IDC_CEMENT: 
-		error = CreateTexAndSampler(pD3DDevice, TEXT("cement.jpg"));
-		break;	
-	case IDC_COPPER: 
-			error = CreateTexAndSampler(pD3DDevice, TEXT("copper.jpg"));
-				break;
-	}
+
 	CheckError(error);
 
 	IsInitialized = TRUE;
@@ -88,6 +83,24 @@ void Material::SetMatrices(ID3D11DeviceContext* pD3DDeviceContext, XMFLOAT4X4* p
 
 
 
+INT Material::setLight(ID3D11DeviceContext* pD3DDeviceContext, const LightBuffer& light)
+{
+	D3D11_MAPPED_SUBRESOURCE data;
+	ZeroMemory(&data, sizeof(data));
+	HRESULT hr = pD3DDeviceContext->Map(_pLightBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &data);
+	CheckFailed(hr, 88);
+
+	LightBuffer* pLight = reinterpret_cast<LightBuffer*>(data.pData);
+	*pLight = light;
+
+	pD3DDeviceContext->Unmap(_pLightBuffer, 0);
+	pD3DDeviceContext->PSSetConstantBuffers(0, 1, &_pLightBuffer);
+	//return 0;
+}
+
+
+
+
 
 INT Material::CreateVertexShader(ID3D11Device* pD3DDevice, int desc)
 {
@@ -95,20 +108,6 @@ INT Material::CreateVertexShader(ID3D11Device* pD3DDevice, int desc)
 
 	// load already compiled shader
 	HRESULT hr = {};
-	switch (desc)
-	{
-	case IDC_PHONG:
-		hr = D3DReadFileToBlob(TEXT("LightingVertexShader.cso"), &pCompiledShaderCode);
-		break;
-	case IDC_GLOSSY:
-		//hr = D3DReadFileToBlob(TEXT("GlossyVertexShader.cso"), &pCompiledShaderCode);
-		hr = D3DReadFileToBlob(TEXT("LightingVertexShader.cso"), &pCompiledShaderCode);
-		break;
-	case IDC_MATT:
-		//hr = D3DReadFileToBlob(TEXT("LightingVertexShader.cso"), &pCompiledShaderCode);
-		hr = D3DReadFileToBlob(TEXT("MattVertexShader.cso"), &pCompiledShaderCode);
-		break;
-	}
 	//HRESULT hr = D3DReadFileToBlob(TEXT("ColorVertexShader.cso"), &pCompiledShaderCode);
 	//HRESULT hr = D3DReadFileToBlob(TEXT("TextureVertexShader.cso"), &pCompiledShaderCode);
 	//HRESULT hr = D3DReadFileToBlob(TEXT("PhongVertexShader.cso"), &pCompiledShaderCode);
@@ -131,20 +130,8 @@ INT Material::CreatePixelShader(ID3D11Device* pD3DDevice,int desc)
 	ID3DBlob* pCompiledShaderCode = nullptr;
 
 	HRESULT hr = {};	
-	switch (desc)
-	{
-	case IDC_PHONG:
-		hr = D3DReadFileToBlob(TEXT("LightingPixelShader.cso"), &pCompiledShaderCode);
-		break;
-	case IDC_GLOSSY:
-		hr = D3DReadFileToBlob(TEXT("GlossyPixelShader.cso"), &pCompiledShaderCode);
-		//hr = D3DReadFileToBlob(TEXT("LightingPixelShader.cso"), &pCompiledShaderCode);
-		break;
-	case IDC_MATT:
-		hr = D3DReadFileToBlob(TEXT("MattPixelShader.cso"), &pCompiledShaderCode);
-		//hr = D3DReadFileToBlob(TEXT("LightingPixelShader.cso"), &pCompiledShaderCode);
-		break;
-	}
+	
+
 	//HRESULT hr = D3DReadFileToBlob(TEXT("ColorPixelShader.cso"), &pCompiledShaderCode);
 	//HRESULT hr = D3DReadFileToBlob(TEXT("TexturePixelShader.cso"), &pCompiledShaderCode);
 	//HRESULT hr = D3DReadFileToBlob(TEXT("PhongPixelShader.cso"), &pCompiledShaderCode);
@@ -206,6 +193,25 @@ INT Material::CreateMatrixBuffer(ID3D11Device* pD3DDevice)
 
 	return 0;
 }
+
+
+INT Material::CreateLightBuffer(ID3D11Device* pD3DDevice)
+{
+	D3D11_BUFFER_DESC desc = {};
+	desc.ByteWidth = sizeof(LightBuffer);
+	desc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+	desc.Usage = D3D11_USAGE_DYNAMIC;
+	desc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+
+	HRESULT hr = pD3DDevice->CreateBuffer(&desc, nullptr, &_pLightBuffer);
+	CheckFailed(hr, 67);
+
+	return 0;
+}
+
+
+
+
 
 INT Material::CreateTexAndSampler(ID3D11Device* pD3DDevice, LPCTSTR textureName)
 {

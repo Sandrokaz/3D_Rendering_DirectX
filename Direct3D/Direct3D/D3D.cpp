@@ -2,7 +2,7 @@
 #include "Utilities.h"
 #include <xutility>
 
-INT D3D::Initialize(HWND hWnd, UINT width, UINT height, BOOL isFullscreen)
+INT D3D::init(HWND hWnd, UINT width, UINT height, BOOL isFullscreen)
 {
     HRESULT hr;
 
@@ -94,7 +94,7 @@ INT D3D::Initialize(HWND hWnd, UINT width, UINT height, BOOL isFullscreen)
     return 0;
 }
 
-void D3D::BeginScene(FLOAT red, FLOAT green, FLOAT blue)
+void D3D::beginScene(FLOAT red, FLOAT green, FLOAT blue)
 {
     // clear back buffer
     FLOAT backgroundColor[] = { red, green, blue, 1.0f };
@@ -104,13 +104,13 @@ void D3D::BeginScene(FLOAT red, FLOAT green, FLOAT blue)
     _pD3DDeviceContext->ClearDepthStencilView(_pDepthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0xffffffff);
 }
 
-void D3D::EndScene()
+void D3D::endScene()
 {
     // swap front with back buffer
     _pDXGISwapChain->Present(0, 0);
 }
 
-void D3D::DeInitialize()
+void D3D::deInit()
 {
     safeRelease<ID3D11RasterizerState>(_pRasterizerState);
     safeRelease<ID3D11DepthStencilView>(_pDepthStencilView);

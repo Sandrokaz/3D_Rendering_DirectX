@@ -1,8 +1,12 @@
-﻿  D3D.cpp
-C:\Users\aleks\OneDrive\Desktop\ReSub\Direct3D\Direct3D\D3D.cpp(84,22): warning C4244: '=': conversion from 'UINT' to 'FLOAT', possible loss of data
-C:\Users\aleks\OneDrive\Desktop\ReSub\Direct3D\Direct3D\D3D.cpp(85,23): warning C4244: '=': conversion from 'UINT' to 'FLOAT', possible loss of data
-C:\Users\aleks\OneDrive\Desktop\ReSub\Direct3D\Direct3D\D3D.cpp(104,102): warning C4305: 'argument': truncation from 'unsigned int' to 'UINT8'
-C:\Users\aleks\OneDrive\Desktop\ReSub\Direct3D\Direct3D\D3D.cpp(104,92): warning C4309: 'argument': truncation of constant value
-  Main.cpp
+﻿  Main.cpp
+  Material.cpp
+  Time.cpp
+  Window.cpp
+C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\Direct3D\Window.cpp(20,36): warning C4838: conversion from 'UINT' to 'LONG' requires a narrowing conversion
+C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\Direct3D\Window.cpp(20,65): warning C4838: conversion from 'UINT' to 'LONG' requires a narrowing conversion
+C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\Direct3D\Window.cpp(20,92): warning C4838: conversion from 'UINT' to 'LONG' requires a narrowing conversion
+C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\Direct3D\Window.cpp(20,121): warning C4838: conversion from 'UINT' to 'LONG' requires a narrowing conversion
   Generating Code...
-  Direct3D.vcxproj -> C:\Users\aleks\OneDrive\Desktop\ReSub\Direct3D\Debug\Direct3D.exe
+C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\Direct3D\Material.cpp(99): warning C4715: 'Material::setLight': not all control paths return a value
+C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\Direct3D\Main.cpp(100): warning C4715: 'WinMain': not all control paths return a value
+  Direct3D.vcxproj -> C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\Debug\Direct3D.exe

@@ -3,7 +3,7 @@
 
 using namespace DirectX;
 
-INT Camera::Initialize(UINT screenWidth, UINT screenHeight)
+INT Camera::init(UINT screenWidth, UINT screenHeight)
 {
     // view matrix
     XMMATRIX viewMatrix = XMMatrixLookToLH(
@@ -24,13 +24,13 @@ INT Camera::Initialize(UINT screenWidth, UINT screenHeight)
     return 0;
 }
 
-void Camera::Update(FLOAT deltaTime)
+void Camera::update(FLOAT deltaTime)
 {
 
 }
 
 
 
-void Camera::DeInitialize()
+void Camera::deInit()
 {
 }

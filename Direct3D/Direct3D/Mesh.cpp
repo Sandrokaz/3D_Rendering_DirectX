@@ -1,5 +1,5 @@
 #include "Mesh.h"
-#include "Utils.h"
+#include "Utilities.h"
 #include "Vertex.h"
 #include <xutility>
 #include "resource.h"
@@ -107,24 +107,6 @@ INT Mesh::initVertexBuffer(ID3D11Device* pD3DDevice, int descr)
 	Vertex* vertices = nullptr;
 
 
-	switch (descr)
-	{
-
-	case IDC_CUBE:
-		vertices = cube.get()->vertices;
-		_vertexCount = std::size(cube.get()->vertices);
-		break;
-	case IDC_Tetrahedron:
-		vertices = tetrahedron.get()->vertices;
-		_vertexCount = std::size(tetrahedron.get()->vertices);
-		break;
-	case IDC_PentagonalPrism:
-		vertices = pentagonalPrism.get()->vertices;
-		_vertexCount = std::size(pentagonalPrism.get()->vertices);
-		break;
-	default:
-		break;
-	}
 
 	_vertexStride = sizeof(Vertex);
 	D3D11_BUFFER_DESC desc = {};
@@ -145,28 +127,6 @@ INT Mesh::initIndexBuffer(ID3D11Device* pD3DDevice, int descr)
 {
 	
 	USHORT* indices = nullptr;
-	switch (descr)
-	{
-	case IDC_CUBE:
-	indices = cube.get()->indices;
-	_indexCount = std::size(cube.get()->indices);
-	break;
-
-	case IDC_Tetrahedron:
-		indices = tetrahedron.get()->indices;
-		_indexCount = std::size(tetrahedron.get()->indices);
-		break;
-
-	case IDC_PentagonalPrism:
-		indices = pentagonalPrism.get()->indices;
-		_indexCount = std::size(pentagonalPrism.get()->indices);
-		break;
-
-	default:
-		break;
-	}
-
-
 
 	D3D11_BUFFER_DESC desc = {};
 	desc.ByteWidth = _indexCount * sizeof(USHORT);

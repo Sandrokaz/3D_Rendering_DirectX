@@ -7,9 +7,9 @@ using namespace DirectX;
 class Camera
 {
 public:
-	INT Initialize(UINT screenWidth, UINT screenHeight);
-	void Update(FLOAT deltaTime);
-	void DeInitialize();
+	INT init(UINT screenWidth, UINT screenHeight);
+	void update(FLOAT deltaTime);
+	void deInit();
 
 	XMFLOAT4X4* getViewMatrix() { return &_viewMatrix; }
 	XMFLOAT4X4* getProjectionMatrix() { return &_projectionMatrix; }

@@ -1,7 +1,7 @@
 #include "Window.h"
 #include "resource.h"
 
-INT Window::Initialize(HINSTANCE hInstance, UINT width, UINT height)
+INT Window::init(HINSTANCE hInstance, UINT width, UINT height)
 {
 	WNDCLASS wc = {};
 	wc.hInstance = hInstance;
@@ -32,7 +32,7 @@ INT Window::Initialize(HINSTANCE hInstance, UINT width, UINT height)
 	return 0;
 }
 
-BOOL Window::Run()
+BOOL Window::run()
 {
 	static MSG msg = {};
 
@@ -46,7 +46,7 @@ BOOL Window::Run()
 	
 }
 
-void Window::DeInitialize()
+void Window::deInit()
 {
 	IsLoaded = FALSE;
 	DestroyWindow(_hWnd);
@@ -81,68 +81,6 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	case WM_CREATE:
 		//MenuHandler(hWnd);
 		break;
-	case WM_COMMAND:
-		switch (LOWORD(wParam)) {
-			/*	case IDM_MENUITEM1:
-					MessageBeep(MB_ICONINFORMATION);
-					break;*/
-
-					// Object menu buttons
-		case ID_3DOBJECTS_CUBE:
-		//	DataExchange::shared_instance().Val = IDC_CUBE;
-			break;
-		case ID_3DOBJECTS_TETRAHEDRON:
-			//DataExchange::shared_instance().Val = IDC_Tetrahedron;
-			break;
-		case ID_3DOBJECTS_PENTAGONALPRISM:
-			//DataExchange::shared_instance().Val = IDC_PentagonalPrism;
-			break;
-		case ID_3DOBJECTS_LOADALL3OBJECTS:
-			break;
-
-			// MATERIAL OPTIONS
-		case ID_PHONG_CEMENT:
-		//	DataExchange::shared_instance().Val = IDC_PHONG;
-			break;
-		case ID_GLOSSY_CEMENT:
-		//	DataExchange::shared_instance().Val = IDC_GLOSSY;
-			break;
-		case ID_MATT_CEMENT:
-		//	DataExchange::shared_instance().Val = IDC_MATT;
-			break;
-		case ID_PHONG_COPPER:
-		//	DataExchange::shared_instance().Val = IDC_POPCORN;
-			break;
-		case ID_GLOSSY_COPPER:
-			//DataExchange::shared_instance().Val = IDC_CEMENT;
-			break;
-		case ID_MATT_COPPER:
-			//DataExchange::shared_instance().Val = IDC_COPPER;
-			break;
-			
-		case ID_PHONG_WOOD:
-			//	DataExchange::shared_instance().Val = IDC_POPCORN;
-			break;
-		case ID_GLOSSY_WOOD:
-			//DataExchange::shared_instance().Val = IDC_CEMENT;
-			break;
-		case ID_MATT_WOOD:
-			//DataExchange::shared_instance().Val = IDC_COPPER;
-			break;
-
-
-			/*case IDC_CANCEL:
-				DataExchange::shared_instance().Val = IDC_CANCEL;
-				break;*/
-
-
-				/*case IDM_MENUITEM2:
-					MessageBeep(MB_ICONWARNING);
-					break;*/
-					/*	case IDM_FILE_QUIT:
-							SendMessage(hWnd, WM_CLOSE, 0, 0);
-							break;*/
-		}
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		break;

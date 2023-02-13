@@ -3,14 +3,14 @@
 
 using namespace std;
 
-INT Time::Initialize()
+INT Time::init()
 {
 	_lastTimestamp = high_resolution_clock::now();
 
 	return 0;
 }
 
-void Time::Update()
+void Time::update()
 {
 	TIME_POINT now = high_resolution_clock::now();
 	DURATION diff = now - _lastTimestamp;
@@ -61,6 +61,6 @@ void Time::Update()
 #endif // _DEBUG
 }
 
-void Time::DeInitialize()
+void Time::deInit()
 {
 }

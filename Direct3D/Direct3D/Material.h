@@ -1,5 +1,6 @@
 #pragma once
 #include <d3d11.h>
+#include "LightBuffer.h"
 #include <DirectXMath.h>
 
 
@@ -15,12 +16,17 @@ public:
 	void DeInitialize();
 	BOOL IsInitialized = FALSE;
 
+	INT setLight(ID3D11DeviceContext* pD3DDeviceContext, const LightBuffer& light);
+
+
 private:
 	INT CreateVertexShader(ID3D11Device* pD3DDevice,  int desc);
 	INT CreatePixelShader(ID3D11Device* pD3DDevice, int desc);
 	INT CreateInputLayout(ID3D11Device* pD3DDevice, ID3DBlob* pVertexShaderData); // exchange for flexible vertex format
 	INT CreateMatrixBuffer(ID3D11Device* pD3DDevice);
 	INT CreateTexAndSampler(ID3D11Device* pD3DDevice, LPCTSTR textureName);
+	INT CreateLightBuffer(ID3D11Device* pD3DDevice);
+
 	void SetMatrices(ID3D11DeviceContext* pD3DDeviceContext, XMFLOAT4X4* pWorldMatrix, XMFLOAT4X4* pViewMatrix, XMFLOAT4X4* pProjectionMatrix);
 
 	ID3D11VertexShader* _pVertexShader = nullptr;
@@ -31,6 +37,7 @@ private:
 	ID3D11SamplerState* _pSamplerState = nullptr;
 	
 	ID3D11Buffer* _pMatrixBuffer = nullptr; 
+	ID3D11Buffer* _pLightBuffer = nullptr;
 
 	struct MatrixBuffer
 	{

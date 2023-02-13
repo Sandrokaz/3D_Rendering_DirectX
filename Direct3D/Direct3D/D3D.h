@@ -7,10 +7,10 @@
 class D3D
 {
 public:
-	INT Initialize(HWND hWnd, UINT width, UINT height, BOOL isFullscreen);
-	void BeginScene(FLOAT red, FLOAT green, FLOAT blue);
-	void EndScene();
-	void DeInitialize();
+	INT init(HWND hWnd, UINT width, UINT height, BOOL isFullscreen);
+	void beginScene(FLOAT red, FLOAT green, FLOAT blue);
+	void endScene();
+	void deInit();
 
 	ID3D11Device* getDevice() { return _pD3DDevice; }
 	ID3D11DeviceContext* getDeviceContext() { return _pD3DDeviceContext; }

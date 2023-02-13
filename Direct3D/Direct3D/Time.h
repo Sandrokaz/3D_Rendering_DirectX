@@ -12,9 +12,9 @@ typedef duration<float> DURATION;
 class Time
 {
 public:
-	INT Initialize();
-	void Update();
-	void DeInitialize();
+	INT init();
+	void update();
+	void deInit();
 
 	FLOAT getDeltaTime() { return _deltaTime; }
 

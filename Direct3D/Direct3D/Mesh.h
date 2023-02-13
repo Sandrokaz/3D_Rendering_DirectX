@@ -4,23 +4,25 @@
 #include "MeshData.h"
 #include <iostream>
 
+#pragma comment(lib, "assimp")
 using namespace DirectX;
 
 
 class Mesh
 {
 public:
-	INT init(ID3D11Device* pD3DDevice, int descr);
+	INT init(ID3D11Device* pD3DDevice, int descr, const CHAR* filename, XMFLOAT3 pos, XMFLOAT3 rot, XMFLOAT3 scale);
 	void render(ID3D11DeviceContext* pD3DDeviceContext);
-	void UpdateMovement(FLOAT deltaTime);
+	void update(FLOAT deltaTime);
+	//void UpdateMovement(FLOAT deltaTime);
 	void setPos(FLOAT X, FLOAT Y, FLOAT Z);
 	void setRot(FLOAT X, FLOAT Y, FLOAT Z);
 	void setScale(FLOAT X, FLOAT Y, FLOAT Z);
-	void setDefaultPos(FLOAT X, FLOAT Y, FLOAT Z);
+	
 
-	void deInit();
 	BOOL IsInitialised = FALSE;
 	XMFLOAT4X4* getWorldMatrix() { return &_worldMatrix; }
+	void deInit();
 
 private:
 	INT initVertexBuffer(ID3D11Device* pD3DDevice, int descr);

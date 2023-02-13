@@ -4,10 +4,10 @@
 class Window
 {
 public:
-	INT Initialize(HINSTANCE hInstance, UINT width, UINT height);
-	BOOL Run();
-	void MenuHandler(HWND hWnd);
-	void DeInitialize();
+	INT init(HINSTANCE hInstance, UINT width, UINT height);
+	BOOL run();
+	//void MenuHandler(HWND hWnd);
+	void deInit();
 
 	BOOL IsLoaded = FALSE;
 	HWND GetWindowHandle() { return _hWnd; }
