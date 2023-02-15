@@ -4,7 +4,7 @@
 #include "MeshData.h"
 #include <iostream>
 
-#pragma comment(lib, "assimp")
+//#pragma comment(lib, "assimp")
 using namespace DirectX;
 
 

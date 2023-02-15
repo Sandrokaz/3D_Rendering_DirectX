@@ -6,7 +6,7 @@
 
 
 
-INT Mesh::init(ID3D11Device* pD3DDevice, int descr)
+INT Mesh::init(ID3D11Device* pD3DDevice, int descr, const CHAR* filename, XMFLOAT3 pos, XMFLOAT3 rot, XMFLOAT3 scale)
 {
 	INT error = initVertexBuffer(pD3DDevice, descr);
 	CheckError(error);
@@ -15,7 +15,7 @@ INT Mesh::init(ID3D11Device* pD3DDevice, int descr)
 	CheckError(error);
 
 	IsInitialised = TRUE;
-
+						   
 	// initialize world transformation matrix
 	XMStoreFloat4x4(&_worldMatrix, XMMatrixIdentity());
 
@@ -35,7 +35,7 @@ void Mesh::render(ID3D11DeviceContext* pD3DDeviceContext)
 	pD3DDeviceContext->DrawIndexed(_indexCount, 0, 0);
 }
 
-void Mesh::UpdateMovement(FLOAT deltaTime)
+void Mesh::update(FLOAT deltaTime)
 {
 
 	FLOAT move = 5.0f * deltaTime;
@@ -88,12 +88,7 @@ void Mesh::setScale(FLOAT X, FLOAT Y, FLOAT Z)
 	_scaleZ = Z;
 }
 
-void Mesh::setDefaultPos(FLOAT X, FLOAT Y, FLOAT Z)
-{
-	_posX = X;
-	_posY = Y;
-	_posZ = Z;
-}
+
 
 void Mesh::deInit()
 {
