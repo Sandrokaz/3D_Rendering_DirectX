@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\Direct3D.exe</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\Shaders\MattPixelShader.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\Shaders\MattVertexShader.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\PixelShader.cso</FullPath>
+    </ContentFile>
+  </ContentFiles>
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

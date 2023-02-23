@@ -1,0 +1,418 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C26812",
+          "message": {
+            "text": "The enum type 'DirectX::WIC_LOADER_FLAGS' is unscoped. Prefer 'enum class' over 'enum' (Enum.3)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/aleks/OneDrive/Desktop/ReSub/3D-Object-Rendering/Direct3D/Framework/WICTextureLoader.h"
+                },
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 5,
+                  "endLine": 54,
+                  "endColumn": 5
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??UDirectX@@YA?AW4WIC_LOADER_FLAGS@0@W410@0@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6385",
+          "message": {
+            "text": "Reading invalid data from 'pstrName':  the readable size is '260' bytes, but '4294967295' bytes may be read."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/aleks/OneDrive/Desktop/ReSub/3D-Object-Rendering/Direct3D/Framework/WICTextureLoader.cpp"
+                },
+                "region": {
+                  "startLine": 811,
+                  "startColumn": 51
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?SetDebugTextureInfo@?A0xf7791ee6@@YAXPEB_WPEAPEAUID3D11Resource@@PEAPEAUID3D11ShaderResourceView@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/aleks/OneDrive/Desktop/ReSub/3D-Object-Rendering/Direct3D/Framework/WICTextureLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 777,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/aleks/OneDrive/Desktop/ReSub/3D-Object-Rendering/Direct3D/Framework/WICTextureLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 779,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/aleks/OneDrive/Desktop/ReSub/3D-Object-Rendering/Direct3D/Framework/WICTextureLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 780,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/aleks/OneDrive/Desktop/ReSub/3D-Object-Rendering/Direct3D/Framework/WICTextureLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 789,
+                            "startColumn": 24
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/aleks/OneDrive/Desktop/ReSub/3D-Object-Rendering/Direct3D/Framework/WICTextureLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 791,
+                            "startColumn": 29
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/aleks/OneDrive/Desktop/ReSub/3D-Object-Rendering/Direct3D/Framework/WICTextureLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 792,
+                            "startColumn": 21
+                          }
+                        },
+                        "message": {
+                          "text": "'pstrName' may be NULL (Enter this branch)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/aleks/OneDrive/Desktop/ReSub/3D-Object-Rendering/Direct3D/Framework/WICTextureLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 794,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/aleks/OneDrive/Desktop/ReSub/3D-Object-Rendering/Direct3D/Framework/WICTextureLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 801,
+                            "startColumn": 29
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this branch, (assume 'texture&&*texture' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/aleks/OneDrive/Desktop/ReSub/3D-Object-Rendering/Direct3D/Framework/WICTextureLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 809,
+                            "startColumn": 33
+                          }
+                        },
+                        "message": {
+                          "text": "Enter this branch, (assume 'textureView&&*textureView')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/aleks/OneDrive/Desktop/ReSub/3D-Object-Rendering/Direct3D/Framework/WICTextureLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 811,
+                            "startColumn": 51
+                          }
+                        },
+                        "message": {
+                          "text": "'pstrName' is an Input to 'strnlen_s' (declared at c:\\program files (x86)\\windows kits\\10\\include\\10.0.22000.0\\ucrt\\string.h:367)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/aleks/OneDrive/Desktop/ReSub/3D-Object-Rendering/Direct3D/Framework/WICTextureLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 811,
+                            "startColumn": 51
+                          }
+                        },
+                        "message": {
+                          "text": "'<symbol>' may equal -1"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/aleks/OneDrive/Desktop/ReSub/3D-Object-Rendering/Direct3D/Framework/WICTextureLoader.cpp"
+                          },
+                          "region": {
+                            "startLine": 811,
+                            "startColumn": 51
+                          }
+                        },
+                        "message": {
+                          "text": "Invalid read from 'pstrName', (outside its readable range)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.29.30147.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX86\\x64\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x004CC1B0 -il C:\\Users\\aleks\\AppData\\Local\\Temp\\_CL_5d800c1fast -typedil -f Framework\\WICTextureLoader.cpp -Ze -D_MSC_EXTENSIONS -Zp16 -pc \\:/ -D_MSC_VER=1929 -D_MSC_FULL_VER=192930147 -D_MSC_BUILD=0 -D_M_AMD64=100 -ZILP448 -D_M_X64=100 -D_WIN64 -D_WIN32 -GR -D_CPPRTTI -I C:\\Libraries\\vcpkg\\installed\\x64-windows\\include -nologo -W 3 -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -D_DEBUG -D_WINDOWS -DNOMINMAX -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -Fox64\\Debug\\WICTextureLoader.obj -Fdx64\\Debug\\vc142.pdb -external:W 3 -Gd -analyze:projectdirectory C:\\Users\\aleks\\OneDrive\\Desktop\\ReSub\\3D-Object-Rendering\\Direct3D -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Team Tools\\Static Analysis Tools\\Rule Sets\\NativeRecommendedRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Users\\aleks\\OneDrive\\Desktop\\ReSub\\3D-Object-Rendering\\Direct3D\\assimp\\include -I C:\\Users\\aleks\\OneDrive\\Desktop\\ReSub\\3D-Object-Rendering\\Direct3D\\assimp -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um -I C:\\Libraries\\vcpkg\\installed\\x64-windows\\include -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\include -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\VS\\include -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\um -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\shared -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\winrt -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\cppwinrt -external:I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um -external:I C:\\Libraries\\vcpkg\\installed\\x64-windows\\include -I C:\\Libraries\\vcpkg\\installed\\x64-windows\\include",
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/Users/aleks/OneDrive/Desktop/ReSub/3D-Object-Rendering/Direct3D/Main.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "a893764e46c17d7ba092ada29f086977"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/aleks/onedrive/desktop/resub/3d-object-rendering/direct3d/framework/menuhandler.h"
+          },
+          "hashes": {
+            "md5": "948762537a6daf6f9d16c883dd603dba"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/aleks/onedrive/desktop/resub/3d-object-rendering/direct3d/framework/window.h"
+          },
+          "hashes": {
+            "md5": "db2fe35690a85af5f547292defec860b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/aleks/onedrive/desktop/resub/3d-object-rendering/direct3d/framework/d3d.h"
+          },
+          "hashes": {
+            "md5": "3c739543f547321db301ce71f9c5898b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/aleks/onedrive/desktop/resub/3d-object-rendering/direct3d/framework/time.h"
+          },
+          "hashes": {
+            "md5": "af751ece1cfad64e34c937b4251ad80e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/aleks/onedrive/desktop/resub/3d-object-rendering/direct3d/framework/camera.h"
+          },
+          "hashes": {
+            "md5": "5165d0240a2d017f2a735ae2ec9dd728"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/aleks/onedrive/desktop/resub/3d-object-rendering/direct3d/framework/utilities.h"
+          },
+          "hashes": {
+            "md5": "784422a9ced8ca4bf67c8bb2855524a4"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/aleks/onedrive/desktop/resub/3d-object-rendering/direct3d/framework/lightbuffer.h"
+          },
+          "hashes": {
+            "md5": "11c61c3eb0123295d30081edb5bd9cae"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/aleks/onedrive/desktop/resub/3d-object-rendering/direct3d/framework/material.h"
+          },
+          "hashes": {
+            "md5": "d205b047479e8e8e277002de091724c5"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/aleks/onedrive/desktop/resub/3d-object-rendering/direct3d/framework/mesh.h"
+          },
+          "hashes": {
+            "md5": "313e9fe98ee6f1eb72fa3585d907cb24"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/aleks/onedrive/desktop/resub/3d-object-rendering/direct3d/framework/vertex.h"
+          },
+          "hashes": {
+            "md5": "0735d64a757eb183926ac155f248667d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/aleks/onedrive/desktop/resub/3d-object-rendering/direct3d/framework/window.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "b82e8311ebf40f262174a63b30b1c3b5"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/aleks/OneDrive/Desktop/ReSub/3D-Object-Rendering/Direct3D/Framework/WICTextureLoader.h"
+          },
+          "roles": [
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "f6724d447738d62aa59e7a0dc4385364"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/aleks/OneDrive/Desktop/ReSub/3D-Object-Rendering/Direct3D/Framework/WICTextureLoader.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "16672629d3715d6a5c808a04b112ee4b"
+          }
+        }
+      ]
+    }
+  ]
+}

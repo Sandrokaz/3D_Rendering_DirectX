@@ -1,0 +1,116 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// German (Germany) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // German (Germany) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United Kingdom) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU1 MENU
+BEGIN
+    POPUP "3D Objects"
+    BEGIN
+        MENUITEM "Cube",                        ID_3DOBJECTS_CUBE
+        MENUITEM "Tetrahedron",                 ID_3DOBJECTS_TETRAHEDRON
+        MENUITEM "Pentagonal Prism",            ID_3DOBJECTS_PENTAGONALPRISM
+        MENUITEM "Load all 3 Objects",          ID_3DOBJECTS_LOADALL3OBJECTS
+        MENUITEM "Quit",                        ID_3DOBJECTS_QUIT
+    END
+    POPUP "Materials"
+    BEGIN
+        POPUP "Phong"
+        BEGIN
+            MENUITEM "Cement",                      ID_PHONG_CEMENT
+            MENUITEM "Copper",                      ID_PHONG_COPPER
+            MENUITEM "Wood",                        ID_PHONG_WOOD
+        END
+        POPUP "Glossy"
+        BEGIN
+            MENUITEM "Cement",                      ID_GLOSSY_CEMENT
+            MENUITEM "Copper",                      ID_GLOSSY_COPPER
+            MENUITEM "Wood",                        ID_GLOSSY_WOOD
+        END
+        POPUP "Matt"
+        BEGIN
+            MENUITEM "Cement ",                     ID_MATT_CEMENT
+            MENUITEM "Copper",                      ID_MATT_COPPER
+            MENUITEM "Wood",                        ID_MATT_WOOD
+        END
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// OBJ
+//
+
+#endif    // English (United Kingdom) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

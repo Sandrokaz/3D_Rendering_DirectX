@@ -1,0 +1,4 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\RoughPixelShader.hlsl(66,24-62): error X3087: float3 object does not have methods
+  
+  compilation failed; no code produced
