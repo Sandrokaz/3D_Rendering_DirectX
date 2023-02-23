@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\Direct3D",
-    "\\Direct3D\\Direct3D"
+    "\\Direct3D\\Framework"
   ],
-  "SelectedNode": "\\Direct3D\\Direct3D\\Mesh.h",
+  "SelectedNode": "\\Direct3D\\RoughVertexShader.hlsl",
   "PreviewInSolutionExplorer": false
 }
