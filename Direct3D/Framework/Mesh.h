@@ -4,7 +4,7 @@
 #include <DirectXMath.h>
 #include <vector>
 
-//#pragma comment(lib, "assimp-vc140-mtd.lib")
+
 #pragma comment(lib, "assimp.lib")
 
 using namespace std;
@@ -20,7 +20,7 @@ public:
 
 	void update(FLOAT deltaTime);
 	void render(ID3D11DeviceContext* pD3DDeviceContext);
-	//void UpdateMovement(FLOAT deltaTime);
+
 
 	// Set floats
 	void setPos(FLOAT X, FLOAT Y, FLOAT Z);
@@ -47,20 +47,19 @@ public:
 
 	BOOL IsInitialised = FALSE;
 
-
-	//XMFLOAT3 getPositionFloat3() { return _positionFloat3; }
-	//XMFLOAT3 getRotationFloat3() { return _rotationFloat3; }
-	//XMFLOAT3 getScaleFloat3() { return _scaleFloat3; }
-
-
-	//XMVECTOR getPositionVector() { return _positionVector; }
-	//XMVECTOR getRotationVector() { return _rotationVector; }
-	//XMVECTOR getScaleVector() { return _scaleVector; }
-
-
+	XMFLOAT3 getPositionFloat3() { return _positionFloat3; }
+	XMFLOAT3 getRotationFloat3() { return _rotationFloat3; }
+	XMFLOAT3 getScaleFloat3() { return _scaleFloat3; }
+	
+	XMVECTOR getPositionVector() { return _positionVector; }
+	XMVECTOR getRotationVector() { return _rotationVector; }
+	XMVECTOR getScaleVector() { return _scaleVector; }
+	
 	XMFLOAT4X4 getWorldMatrix4x4() { return _worldMatrix4x4; }
 	XMMATRIX getWorldMatrix() { return _worldMatrix; }
 
+
+	
 
 	void deInit();
 

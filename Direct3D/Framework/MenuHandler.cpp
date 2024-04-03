@@ -1,79 +1,122 @@
 #include "MenuHandler.h"
+#include "Mesh.h"
+#include "D3D.h"
+#include "Material.h"
+
 
 INT Menu::init(HWND hWnd)
 {
-    _hMenu = CreateMenu();
-    if (!_hMenu)
-        return false;
-    
     _hWnd = hWnd;
+    _hMenu = CreateMenu();
+    SetMenu(hWnd, _hMenu);
 
-    SetMenu(_hWnd, _hMenu);
+
     addMenuItems();
-    return true;
-}
-
-void Menu::update()
-{
-    // Handle any menu commands
-    MSG msg = { 0 };
-    while (PeekMessage(&msg, _hWnd, 0, 0, PM_REMOVE))
-    {
-        TranslateMessage(&msg);
-        DispatchMessage(&msg);
-    }
+    return 0;
 }
 
 void Menu::deinit()
 {
-    // Clean up menu items and handle
-
     DestroyMenu(_hMenu);
-    _hMenu = nullptr;
 }
+
+void Menu::onMenuCommand(int id)
+{
+
+
+}
+
+
 
 
 void Menu::addMenuItems()
 {
-    HMENU hFileMenu = CreateMenu();
+    HMENU fileMenu = CreateMenu();
+    AppendMenu(_hMenu, MF_POPUP, (UINT_PTR)fileMenu, L"&File");
 
-    AppendMenu(hFileMenu, MF_STRING, ID_OPEN, L"&Open");
-    AppendMenu(hFileMenu, MF_STRING, ID_SAVE, L"&Save");
-    AppendMenu(hFileMenu, MF_SEPARATOR, 0, NULL);
-    AppendMenu(hFileMenu, MF_STRING, ID_EXIT, L"&Exit");
+    AppendMenu(fileMenu, MF_STRING, ID_OPEN, L"&Open");
+    AppendMenu(fileMenu, MF_STRING, ID_SAVE, L"&Save");
+    AppendMenu(fileMenu, MF_SEPARATOR, 0, nullptr);
+    AppendMenu(fileMenu, MF_STRING, ID_EXIT, L"&Exit");
 
-    AppendMenu(_hMenu, MF_POPUP, (UINT_PTR)hFileMenu, L"&File");
+    HMENU loadMenu = CreateMenu();
+    AppendMenu(_hMenu, MF_POPUP, (UINT_PTR)loadMenu, L"&Load");
 
-    /*HMENU hObjectMenu = CreatePopupMenu();
-
-    AppendMenu(hObjectMenu, MF_STRING, ID_LOAD_OBJECT, L"&Load Object");
-
-    AppendMenu(_hMenu, MF_POPUP, (UINT_PTR)hObjectMenu, L"&Object");*/
+    AppendMenu(loadMenu, MF_STRING, ID_LOAD_CUBE, L"&Cube");
+    AppendMenu(loadMenu, MF_STRING, ID_LOAD_HEDRA, L"&Hedra");
+    AppendMenu(loadMenu, MF_STRING, ID_LOAD_PRISM, L"&Prism");
 }
 
-//void Menu::HandleCommand(WPARAM wParam)
-//{
-//    switch (LOWORD(wParam))
-//    {
-//    case ID_OPEN:
-//        // Handle open command
-//        break;
-//
-//    case ID_SAVE:
-//        // Handle save command
-//        break;
-//
-//    case ID_EXIT:
-//        // Handle exit command
-//        break;
-//
-//    case ID_LOAD_OBJECT:
-//        // Handle load object command
-//        break;
-//
-//    default:
-//        break;
-//    }
-//}
+
+
+void Menu::update()
+{
+        //// Get the window's client area
+        //RECT clientRect;
+        //GetClientRect(_hWnd, &clientRect);
+
+        //// Create an off-screen device context and bitmap
+        //HDC hdcOffscreen = CreateCompatibleDC(nullptr);
+        //HBITMAP hBitmap = CreateCompatibleBitmap(hdcOffscreen, clientRect.right, clientRect.bottom);
+        //HGDIOBJ hOldBitmap = SelectObject(hdcOffscreen, hBitmap);
+
+        //// Draw the menu onto the off-screen device context
+        //DrawMenuBar(_hWnd);
+
+        //// Copy the off-screen bitmap to the window's device context
+        //HDC hdc = GetDC(_hWnd);
+        //BitBlt(hdc, 0, 0, clientRect.right, clientRect.bottom, hdcOffscreen, 0, 0, SRCCOPY);
+        //ReleaseDC(_hWnd, hdc);
+
+        //// Clean up
+        //SelectObject(hdcOffscreen, hOldBitmap);
+        //DeleteObject(hBitmap);
+        //DeleteDC(hdcOffscreen);
+  
+        // Check if the client area size has changed
+     
+        GetClientRect(_hWnd, &clientRect);
+        if (clientRect.right == _lastClientSize.right && clientRect.bottom == _lastClientSize.bottom)
+        {
+            return; // No need to redraw the menu
+        }
+
+        // Update the last client size
+        _lastClientSize = clientRect;
+
+        // Create a memory DC and bitmap
+        HDC hdcMem = CreateCompatibleDC(nullptr);
+        HBITMAP hBitmap = CreateCompatibleBitmap(GetDC(_hWnd), clientRect.right, clientRect.bottom);
+        HGDIOBJ hOldBitmap = SelectObject(hdcMem, hBitmap);
+
+        // Draw the menu onto the memory DC
+        DrawMenuBar(_hWnd);
+
+        // Copy the memory DC to the screen
+        PAINTSTRUCT ps;
+        HDC hdc = BeginPaint(_hWnd, &ps);
+        BitBlt(hdc, 0, 0, clientRect.right, clientRect.bottom, hdcMem, 0, 0, SRCCOPY);
+        EndPaint(_hWnd, &ps);
+
+        // Clean up
+        SelectObject(hdcMem, hOldBitmap);
+        DeleteObject(hBitmap);
+        DeleteDC(hdcMem);
+    
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 

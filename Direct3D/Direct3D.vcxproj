@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -72,27 +72,35 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D</OutDir>
-    <IncludePath>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\assimp\include;C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\assimp;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\assimp\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>.</OutDir>
+    <IncludePath>assimp\include;assimp;$(IncludePath)</IncludePath>
+    <LibraryPath>assimp\lib;$(LibraryPath)</LibraryPath>
+    <IntDir>
+    </IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D</OutDir>
-    <IncludePath>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\assimp\include;C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\assimp;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\assimp\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>assimp\include;assimp;$(IncludePath)</IncludePath>
+    <LibraryPath>assimp\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>.</OutDir>
+    <IntDir>
+    </IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D</OutDir>
-    <IncludePath>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\assimp\include;C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\assimp;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\assimp\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>.</OutDir>
+    <IncludePath>assimp\include;assimp;$(IncludePath)</IncludePath>
+    <LibraryPath>assimp\lib;$(LibraryPath)</LibraryPath>
+    <IntDir>
+    </IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D</OutDir>
-    <IncludePath>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\assimp\include;C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\assimp;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\assimp\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>assimp\include;assimp;$(IncludePath)</IncludePath>
+    <LibraryPath>assimp\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>.</OutDir>
+    <IntDir>
+    </IntDir>
   </PropertyGroup>
   <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
   <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
@@ -113,6 +121,9 @@
     <FxCompile>
       <ObjectFileOutput>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\Shaders\%(Filename).cso</ObjectFileOutput>
     </FxCompile>
+    <Manifest>
+      <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -133,6 +144,9 @@
     <FxCompile>
       <ObjectFileOutput>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\Shaders\%(Filename).cso</ObjectFileOutput>
     </FxCompile>
+    <Manifest>
+      <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -145,10 +159,14 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <FxCompile>
       <ObjectFileOutput>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\Shaders\%(Filename).cso</ObjectFileOutput>
     </FxCompile>
+    <Manifest>
+      <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -169,10 +187,14 @@
     <FxCompile>
       <ObjectFileOutput>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\Shaders\%(Filename).cso</ObjectFileOutput>
     </FxCompile>
+    <Manifest>
+      <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Camera.h" />
     <ClInclude Include="Framework\D3D.h" />
+    <ClInclude Include="Framework\DDSTextureLoader.h" />
     <ClInclude Include="Framework\LightBuffer.h" />
     <ClInclude Include="Framework\Material.h" />
     <ClInclude Include="Framework\MenuHandler.h" />
@@ -185,6 +207,7 @@
   <ItemGroup>
     <ClCompile Include="Framework\Camera.cpp" />
     <ClCompile Include="Framework\D3D.cpp" />
+    <ClCompile Include="Framework\DDSTextureLoader.cpp" />
     <ClCompile Include="Framework\Material.cpp" />
     <ClCompile Include="Framework\MenuHandler.cpp" />
     <ClCompile Include="Framework\Mesh.cpp" />
@@ -214,18 +237,6 @@
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4.0_level_9_3</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4.0_level_9_3</ShaderModel>
     </FxCompile>
-    <FxCompile Include="RoughPixelShader.hlsl">
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
-    </FxCompile>
-    <FxCompile Include="RoughVertexShader.hlsl">
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
-    </FxCompile>
     <FxCompile Include="Shaders\GlossyPixelShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
@@ -240,6 +251,24 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+    </FxCompile>
+    <FxCompile Include="Shaders\LambertianPixelShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+    </FxCompile>
+    <FxCompile Include="Shaders\RoughPixelShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+    </FxCompile>
+    <FxCompile Include="Shaders\RoughVertexShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
     </FxCompile>
   </ItemGroup>

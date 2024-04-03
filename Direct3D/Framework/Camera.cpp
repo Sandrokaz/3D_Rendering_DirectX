@@ -22,7 +22,7 @@ void Camera::setProjectionValues(FLOAT _fovDegrees, INT _screenWidth, INT _scree
 	FLOAT aspectRatio = static_cast<FLOAT>(_screenWidth) / static_cast<FLOAT>(_screenHeight);
 
 	// Create Projection Matrix
-	m_projectionMatrix = XMMatrixPerspectiveFovLH(fovRadians, aspectRatio, _nearZ, _farZ);
+	_projectionMatrix = XMMatrixPerspectiveFovLH(fovRadians, aspectRatio, _nearZ, _farZ);
 	updateViewMatrix();
 }
 
@@ -54,24 +54,24 @@ void Camera::deInit()
 
 const XMMATRIX& Camera::getViewMatrix() const
 {
-	return m_viewMatrix;
+	return _viewMatrix;
 }
 
 const XMFLOAT4X4 Camera::getViewMatrix4x4()
 {
-	XMStoreFloat4x4(&m_viewMatrix4x4, m_viewMatrix);
-	return m_viewMatrix4x4;
+	XMStoreFloat4x4(&_viewMatrix4x4, _viewMatrix);
+	return _viewMatrix4x4;
 }
 
 const XMMATRIX& Camera::getProjectionMatrix() const
 {
-	return m_projectionMatrix;
+	return _projectionMatrix;
 }
 
 const XMFLOAT4X4 Camera::getProjectionMatrix4x4()
 {
-	XMStoreFloat4x4(&m_projectionMatrix4x4, m_projectionMatrix);
-	return m_projectionMatrix4x4;
+	XMStoreFloat4x4(&_projectionMatrix4x4, _projectionMatrix);
+	return _projectionMatrix4x4;
 }
 
 const XMVECTOR& Camera::getPositionVector() const
@@ -156,29 +156,29 @@ void Camera::adjustRotation(FLOAT x, FLOAT y, FLOAT z)
 	updateViewMatrix();
 }
 
-void Camera::setLookAtPos(XMFLOAT3 t_lookAtPos)
+void Camera::setLookAtPos(XMFLOAT3 lookAtPos)
 {
-	if (t_lookAtPos.x == _positionFloat3.x && t_lookAtPos.y == _positionFloat3.y && t_lookAtPos.z == _positionFloat3.z)
+	if (lookAtPos.x == _positionFloat3.x && lookAtPos.y == _positionFloat3.y && lookAtPos.z == _positionFloat3.z)
 		return;
 
-	t_lookAtPos.x = _positionFloat3.x - t_lookAtPos.x;
-	t_lookAtPos.y = _positionFloat3.y - t_lookAtPos.y;
-	t_lookAtPos.z = _positionFloat3.z - t_lookAtPos.z;
+	lookAtPos.x = _positionFloat3.x - lookAtPos.x;
+	lookAtPos.y = _positionFloat3.y - lookAtPos.y;
+	lookAtPos.z = _positionFloat3.z - lookAtPos.z;
 
 	// Calculate Pitch
 	float pitch = 0.0f;
-	if (t_lookAtPos.y != 0.0f)
+	if (lookAtPos.y != 0.0f)
 	{
-		const float dist = sqrt(t_lookAtPos.x * t_lookAtPos.x + t_lookAtPos.z * t_lookAtPos.z);
-		pitch = atan(t_lookAtPos.y / dist);
+		const float dist = sqrt(lookAtPos.x * lookAtPos.x + lookAtPos.z * lookAtPos.z);
+		pitch = atan(lookAtPos.y / dist);
 	}
 
 	// Calculate YAW
 	float yaw = 0.0f;
-	if (t_lookAtPos.x != 0.0f)
-		yaw = atan(t_lookAtPos.x / t_lookAtPos.z);
+	if (lookAtPos.x != 0.0f)
+		yaw = atan(lookAtPos.x / lookAtPos.z);
 
-	if (t_lookAtPos.z > 0)
+	if (lookAtPos.z > 0)
 		yaw += XM_PI;
 
 	setRotation(pitch, yaw, 0.0f);
@@ -186,22 +186,22 @@ void Camera::setLookAtPos(XMFLOAT3 t_lookAtPos)
 
 const XMVECTOR& Camera::getForwardVector()
 {
-	return m_forwardVector;
+	return _forwardVector;
 }
 
 const XMVECTOR& Camera::getBackwardVector()
 {
-	return m_backwardVector;
+	return _backwardVector;
 }
 
 const XMVECTOR& Camera::getleftVector()
 {
-	return m_leftVector;
+	return _leftVector;
 }
 
 const XMVECTOR& Camera::getRightVector()
 {
-	return m_rightVector;
+	return _rightVector;
 }
 
 void Camera::updateViewMatrix()
@@ -219,44 +219,16 @@ void Camera::updateViewMatrix()
 	XMVECTOR upDirection = XMVector3TransformCoord(DEFAULT_UP_VECTOR, camRotMatrix);
 
 	// Rebuild
-	m_viewMatrix = XMMatrixLookAtLH(_positionVector, camTarget, upDirection);
+	_viewMatrix = XMMatrixLookAtLH(_positionVector, camTarget, upDirection);
 
 
 	XMMATRIX rotMatrix = XMMatrixRotationRollPitchYaw(_rotationFloat3.x, _rotationFloat3.y, 0.0f);
 
-	m_forwardVector = XMVector3TransformCoord(DEFAULT_FORWARD_VECTOR, rotMatrix);
-	m_backwardVector = XMVector3TransformCoord(DEFAULT_BACKWARD_VECTOR, rotMatrix);
-	m_leftVector = XMVector3TransformCoord(DEFAULT_LEFT_VECTOR, rotMatrix);
-	m_rightVector = XMVector3TransformCoord(DEFAULT_RIGHT_VECTOR, rotMatrix);
+	_forwardVector = XMVector3TransformCoord(DEFAULT_FORWARD_VECTOR, rotMatrix);
+	_backwardVector = XMVector3TransformCoord(DEFAULT_BACKWARD_VECTOR, rotMatrix);
+	_leftVector = XMVector3TransformCoord(DEFAULT_LEFT_VECTOR, rotMatrix);
+	_rightVector = XMVector3TransformCoord(DEFAULT_RIGHT_VECTOR, rotMatrix);
 }
 
 
 
-
-//void Camera::MoveForward(float deltaTime)
-//{
-//   XMVECTOR velocityVector = XMLoadFloat3(&_forward) * _speed * deltaTime;
-//   XMVECTOR positionVector = XMLoadFloat3(&_position) + velocityVector;
-//   XMStoreFloat3(&_position, positionVector);
-//}
-//
-//void Camera::MoveBackward(float deltaTime)
-//{
-//   XMVECTOR velocityVector = XMLoadFloat3(&_forward) * _speed * deltaTime;
-//   XMVECTOR positionVector =XMLoadFloat3(&_position) - velocityVector;
-//   XMStoreFloat3(&_position, positionVector);
-//}
-//
-//void Camera::MoveLeft(float deltaTime)
-//{
-//   XMVECTOR velocityVector = XMLoadFloat3(&_right) * _speed * deltaTime;
-//   XMVECTOR positionVector = XMLoadFloat3(&_position) - velocityVector;
-//   XMStoreFloat3(&_position, positionVector);
-//}
-//
-//void Camera::MoveRight(float deltaTime)
-//{
-//   XMVECTOR velocityVector = XMLoadFloat3(&_right) * _speed * deltaTime;
-//   XMVECTOR positionVector = XMLoadFloat3(&_position) + velocityVector;
-//   XMStoreFloat3(&_position, positionVector);
-//}

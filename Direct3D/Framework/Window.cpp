@@ -20,7 +20,7 @@ INT Window::init(HINSTANCE hInstance, UINT width, UINT height)
 	RECT wr = { (screenWidth - width) / 2, (screenHeight - height) / 2, (screenWidth + width) / 2, (screenHeight + height) / 2 };
 	DWORD style = WS_OVERLAPPEDWINDOW;
 
-	IsLoaded = TRUE;
+	isInitialized = TRUE;
 	_hWnd = CreateWindow(wc.lpszClassName, wc.lpszClassName, style, wr.left, wr.top, wr.right - wr.left, wr.bottom - wr.top, nullptr, nullptr, hInstance, nullptr);
 
 	//CheckNull(_hWnd, 12);
@@ -39,7 +39,7 @@ INT Window::init(HINSTANCE hInstance, UINT width, UINT height)
 BOOL Window::run()
 {
 	static MSG msg = {};
-	
+	 
 	
 	if (PeekMessage(&msg, nullptr, 0, UINT_MAX, PM_REMOVE))
 	{
@@ -54,7 +54,7 @@ BOOL Window::run()
 
 void Window::deInit()
 {
-	IsLoaded = FALSE;
+	isInitialized = FALSE;
 	_menu.deinit();
 	DestroyWindow(_hWnd);
 }
@@ -65,9 +65,20 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 
 	switch (msg)
 	{
-	case WM_CREATE:
-		//MenuHandler(hWnd);
-		break;
+	case WM_CLOSE:
+	//case WM_COMMAND:
+	//	switch (LOWORD(wParam)) {
+	//	case ID_LOAD_CUBE:
+	//		//appManager.addMesh("Shapes/cube.obj", { 0, 0, 0 }, { 0, 0, 0 }, { 1, 1, 1 });
+	//		break;
+	//	case ID_LOAD_HEDRA:
+	//		//appManager.addMesh("Shapes/hedra.obj", { 0, 0, -1 }, { 0, 0, 0 }, { 1, 1, 1 });
+	//		break;
+	//	case ID_LOAD_PRISM:
+	//		//appManager.addMesh("Shapes/prism.obj", { 3, 0, 0 }, { 0, 0, 0 }, { 1, 1, 1 });
+	//		break;
+	//	}
+
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		break;

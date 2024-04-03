@@ -2,6 +2,7 @@
 #include <Windows.h>
 #include "MenuHandler.h"
 
+
 class Window
 {
 public:
@@ -10,8 +11,9 @@ public:
 	//void MenuHandler(HWND hWnd);
 	void deInit();
 
-	BOOL IsLoaded = FALSE;
-	HWND GetWindowHandle() { return _hWnd; }
+	BOOL isInitialized = FALSE;
+	HWND getWindowHandle() { return _hWnd; }
+	
 
 private:
 	HWND _hWnd = nullptr;

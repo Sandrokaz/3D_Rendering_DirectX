@@ -3,15 +3,23 @@
 
 using namespace DirectX;
 
-struct LightBuffer
+struct LightBuffer				  // has to be aligned in 16 byte blocks
 {
+
+
+
+
 	XMFLOAT4 ambientColor;
 	XMFLOAT4 diffuseColor;
 	XMFLOAT3 lightDirection;
 	FLOAT specularPower;
-	XMFLOAT4 specularColor;
-	FLOAT roughness;
-	XMFLOAT3 padding;
+	XMFLOAT4 specularColor;	
+	FLOAT lightIntensity;
+	XMFLOAT4 lightColor;
+	FLOAT ambientLightPower;	
+	FLOAT glosiness;
+	FLOAT padding;
+	
 	
 };
 

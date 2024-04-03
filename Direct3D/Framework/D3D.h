@@ -11,7 +11,7 @@ public:
 	void beginScene(FLOAT red, FLOAT green, FLOAT blue);
 	void endScene();
 	void deInit();
-
+	BOOL isInitialized = FALSE;
 	ID3D11Device* getDevice() { return _pD3DDevice; }
 	ID3D11DeviceContext* getDeviceContext() { return _pD3DDeviceContext; }
 

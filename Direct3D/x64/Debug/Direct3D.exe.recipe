@@ -13,6 +13,9 @@
       <FullPath>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\Shaders\MattVertexShader.cso</FullPath>
     </ContentFile>
     <ContentFile>
+      <FullPath>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\Shaders\LambertianPixelShader.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
       <FullPath>C:\Users\aleks\OneDrive\Desktop\ReSub\3D-Object-Rendering\Direct3D\Shaders\RoughPixelShader.cso</FullPath>
     </ContentFile>
     <ContentFile>

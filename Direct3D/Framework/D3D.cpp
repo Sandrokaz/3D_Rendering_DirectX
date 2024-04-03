@@ -95,6 +95,10 @@ INT D3D::init(HWND hWnd, UINT width, UINT height, BOOL isFullscreen)
     _pD3DDeviceContext->RSSetState(_pRasterizerState);
     _pD3DDeviceContext->RSSetViewports(1, &viewPort);
 
+
+    BOOL isInitialized = TRUE;
+
+
     return 0;
 }
 
